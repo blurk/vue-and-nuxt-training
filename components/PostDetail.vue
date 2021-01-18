@@ -27,7 +27,24 @@
 
 <script>
 export default {
-  props: ["post"]
+  props: {
+    post: {
+      type: Object,
+      required: true,
+      default: () => ({
+        id: "",
+        title: "",
+        content: "",
+        image: "",
+        createdAt: "",
+        updatedAt: ""
+      }),
+      validator: post =>
+        ["id", "title", "content", "image", "createdAt", "updatedAt"].every(
+          key => key in post
+        )
+    }
+  }
 };
 </script>
 

@@ -1,15 +1,15 @@
 <template>
   <header
-    class="flex items-center justify-between px-10 mb-5 w-full bg-gray-900 h-24"
+    class="flex items-center justify-between w-full h-24 px-10 mb-5 bg-gray-900"
   >
-    <h1 class="text-5xl text-left w-2/3 text-white text-left font-bold ">
+    <h1 class="w-2/3 text-5xl font-bold text-left text-white ">
       App
     </h1>
     <ul class="flex items-center justify-around w-1/3">
       <li
         v-for="(link, name) in links"
         :key="name"
-        class="text-2xl py-2 px-4 font-medium rounded text-white cursor-pointer hover:text-gray-600 transition duration-500 ease-in-out"
+        class="px-4 py-2 text-2xl font-medium text-gray-600 transition duration-500 ease-in-out rounded cursor-pointer hover:text-gray-600"
       >
         <nuxt-link :to="link">{{ name.toUpperCase() }}</nuxt-link>
       </li>
@@ -27,4 +27,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+/* exact link will show the primary color for only the exact matching link */
+a.nuxt-link-exact-active {
+  color: #fff;
+}
+</style>

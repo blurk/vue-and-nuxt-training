@@ -63,7 +63,29 @@
 <script>
 import isImageLink from "../utils/checkImageLink";
 export default {
-  props: ["isEditing", "currentPost"],
+  props: {
+    currentPost: {
+      type: Object,
+      default: () => ({
+        id: "",
+        title: "",
+        content: "",
+        image: "",
+        createdAt: "",
+        updatedAt: ""
+      }),
+      required: false,
+      validator: post =>
+        ["id", "title", "content", "image", "updatedAt", "createdAt"].every(
+          key => key in post
+        )
+    },
+    isEditing: {
+      type: Boolean,
+      default: false,
+      required: false
+    }
+  },
   data() {
     return {
       formData: {
