@@ -64,21 +64,18 @@
 import isImageLink from "../utils/checkImageLink";
 export default {
   props: {
-    currentPost: {
-      type: Object,
-      default: () => ({
-        id: "",
-        title: "",
-        content: "",
-        image: "",
-        createdAt: "",
-        updatedAt: ""
-      }),
-      required: false,
-      validator: post =>
-        ["id", "title", "content", "image", "updatedAt", "createdAt"].every(
-          key => key in post
-        )
+    currentId: { type: String, required: false },
+    currentTitle: {
+      type: String,
+      required: false
+    },
+    currentContent: {
+      type: String,
+      required: false
+    },
+    currentImage: {
+      type: String,
+      required: false
     },
     isEditing: {
       type: Boolean,
@@ -89,9 +86,9 @@ export default {
   data() {
     return {
       formData: {
-        title: this.isEditing ? this.currentPost.title : "",
-        content: this.isEditing ? this.currentPost.content : "",
-        image: this.isEditing ? this.currentPost.image : ""
+        title: this.isEditing ? this.currentTitle : "",
+        content: this.isEditing ? this.currentContent : "",
+        image: this.isEditing ? this.currentImage : ""
       }
     };
   },
@@ -107,7 +104,7 @@ export default {
       if (!this.isEditing) {
         this.$store.dispatch("posts/addPost", { title, content, image });
       } else {
-        let id = this.currentPost.id;
+        let id = this.currentId;
         this.$store.dispatch("posts/updatePost", {
           id,
           title,

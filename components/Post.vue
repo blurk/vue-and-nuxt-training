@@ -1,14 +1,12 @@
 <template>
-  <div
-    class="container w-1/5 m-4 overflow-hidden bg-white shadow-2xl rounded-xl"
-  >
+  <div class="container m-4 overflow-hidden bg-white shadow-2xl rounded-xl">
     <div class="w-full image-container">
-      <img :src="post.image" alt="post image" class="w-full h-full loader" />
+      <img :src="image" alt="post image" class="w-full h-full loader" />
     </div>
-    <h3 class="px-3 py-6 text-xl font-bold text-center">{{ post.title }}</h3>
+    <h3 class="px-3 py-6 text-xl font-bold text-center">{{ title }}</h3>
     <div class="flex items-center justify-around w-full actions bg-teal">
       <nuxt-link
-        :to="`posts/${post.id}`"
+        :to="`posts/${id}`"
         class="flex-1 block w-1/5 px-2 py-2 mx-2 text-center text-white transition duration-500 ease-in-out bg-gray-900 rounded-full cursor-pointer text-md hover:text-gray-600"
         >View
       </nuxt-link>
@@ -20,7 +18,7 @@
       </button>
       <button
         class="flex-1 block w-1/5 px-2 py-2 mx-2 text-center text-white transition duration-500 ease-in-out bg-gray-900 rounded-full cursor-pointer text-md hover:text-gray-600"
-        @click="handleRemove(post.id)"
+        @click="handleRemove(id)"
       >
         Remove
       </button>
@@ -30,7 +28,25 @@
 
 <script>
 export default {
-  props: ["post"],
+  props: {
+    id: {
+      type: String,
+      required: true,
+      default: ""
+    },
+
+    title: {
+      type: String,
+      required: true,
+      default: ""
+    },
+
+    image: {
+      type: String,
+      required: true,
+      default: ""
+    }
+  },
   data() {
     return {
       isDetail: this.$route.params.id
@@ -49,6 +65,7 @@ export default {
 <style scoped>
 .container {
   height: 400px;
+  width: 250px;
 }
 .image-container {
   height: 60%;

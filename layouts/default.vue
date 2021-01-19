@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MyHeader />
+    <MyHeader :links="{ Home: '/', Posts: '/posts', About: '/about' }" />
     <Nuxt />
   </div>
 </template>

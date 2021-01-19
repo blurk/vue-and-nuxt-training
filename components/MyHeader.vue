@@ -19,10 +19,11 @@
 
 <script>
 export default {
-  data() {
-    return {
-      links: { Home: "/", Posts: "/posts", About: "/about" }
-    };
+  props: {
+    links: {
+      type: Object,
+      default: () => {}
+    }
   }
 };
 </script>

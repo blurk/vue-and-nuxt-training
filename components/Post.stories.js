@@ -1,11 +1,17 @@
 import Post from "./Post.vue";
 
 export default {
-  title: "PostCard",
+  title: "Post",
   component: Post,
   argTypes: {
-    post: {
-      control: "object"
+    id: {
+      control: "text"
+    },
+    title: {
+      control: "text"
+    },
+    image: {
+      control: "text"
     }
   }
 };
@@ -18,11 +24,7 @@ const Template = (args, { argTypes }) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-  post: {
-    id: "0000-0000-0000-0000",
-    image: "https://picsum.photos/300/300",
-    title: "Default Title",
-    content:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis nesciunt totam consequatur eos quo qui non quaerat minima nostrum ea."
-  }
+  id: "0000-0000-0000-0000",
+  title: "Default Title",
+  image: "https://picsum.photos/300/300"
 };

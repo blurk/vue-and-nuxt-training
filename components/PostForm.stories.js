@@ -7,8 +7,17 @@ export default {
     isEditing: {
       control: "boolean"
     },
-    currentPost: {
-      control: "object"
+    currentId: {
+      control: "text"
+    },
+    currentTitle: {
+      control: "text"
+    },
+    currentContent: {
+      control: "text"
+    },
+    currentImage: {
+      control: "text"
     }
   }
 };
@@ -21,24 +30,14 @@ const Template = (args, { argTypes }) => ({
 
 export const Add = Template.bind({}); //Add post is default
 Add.args = {
-  currentPost: {
-    id: "",
-    title: "",
-    content: "",
-    createdAt: "",
-    updatedAt: ""
-  },
   isEditing: false
 };
 
 export const Update = Template.bind({}); //Edit post
 Update.args = {
-  currentPost: {
-    id: "",
-    title: "",
-    content: "",
-    createdAt: "",
-    updatedAt: ""
-  },
+  currentId: "0000-0000-0000-0000",
+  currentTitle: "Edit title",
+  currentContent: "Edit Content",
+  currentImage: "Edit Image",
   isEditing: true
 };

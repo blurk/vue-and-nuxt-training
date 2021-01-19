@@ -1,4 +1,3 @@
-import { uuid } from "~/utils/generateId";
 import { storage } from "../utils/storage";
 
 export default {
@@ -52,6 +51,9 @@ export default {
       const index = state.posts.findIndex(p => p.id === post.id);
       state.posts.splice(index, 1, { ...state.posts[index], ...post });
     },
-    deletePost: (state, id) => state.posts.splice(id, 1)
+    deletePost: (state, id) => {
+      const index = state.posts.findIndex(p => p.id === id);
+      state.posts.splice(index, 1);
+    }
   }
 };

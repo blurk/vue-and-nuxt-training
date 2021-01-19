@@ -3,7 +3,11 @@ import MyHeader from "./MyHeader.vue";
 export default {
   title: "MyHeader",
   component: MyHeader,
-  argTypes: {}
+  argTypes: {
+    links: {
+      control: "object"
+    }
+  }
 };
 
 const Template = (args, { argTypes }) => ({
@@ -13,4 +17,6 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  links: { Home: "/", Posts: "/posts", About: "/about" }
+};
