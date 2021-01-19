@@ -25,17 +25,19 @@
     </div>
     <!-- MODAL -->
     <my-modal v-if="showModal" @close="showModal = false">
-      <post-form
-        :isEditing="isEditing"
-        @close="
-          showModal = false;
-          isEditing = false;
-        "
-        :currentTitle="currentEditPost.title"
-        :currentContent="currentEditPost.content"
-        :currentImage="currentEditPost.image"
-        :currentId="currentEditPost.id"
-      />
+      <template v-slot:form>
+        <post-form
+          :isEditing="isEditing"
+          @close="
+            showModal = false;
+            isEditing = false;
+          "
+          :currentTitle="currentEditPost.title"
+          :currentContent="currentEditPost.content"
+          :currentImage="currentEditPost.image"
+          :currentId="currentEditPost.id"
+        />
+      </template>
     </my-modal>
   </div>
 </template>
