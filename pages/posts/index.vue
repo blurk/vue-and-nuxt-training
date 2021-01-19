@@ -12,12 +12,14 @@
     >
       There aren't any post here yet 🥺
     </div>
-    <div v-else class="flex flex-wrap justify-center w-full">
+    <div v-else class="flex flex-wrap justify-center w-full ">
       <!-- POSTS -->
       <post
         v-for="post of allPosts"
         :key="post.id"
-        :post="post"
+        :id="post.id"
+        :title="post.title"
+        :image="post.image"
         @edit="handleEdit(post.id, post)"
       />
     </div>
@@ -29,7 +31,10 @@
           showModal = false;
           isEditing = false;
         "
-        :currentPost="currentEditPost"
+        :currentTitle="currentEditPost.title"
+        :currentContent="currentEditPost.content"
+        :currentImage="currentEditPost.image"
+        :currentId="currentEditPost.id"
       />
     </my-modal>
   </div>

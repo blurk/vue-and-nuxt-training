@@ -1,21 +1,15 @@
 <template>
   <transition name="modal">
     <div
-      class="modal-container w-full h-full z-1 fixed top-0 left-0 bg-black bg-opacity-75 grid place-items-center"
+      class="fixed top-0 left-0 grid w-full h-full bg-black bg-opacity-75 modal-container z-1 place-items-center"
     >
-      <slot></slot>
+      <slot name="form"></slot>
     </div>
   </transition>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      body: this.$refs.body
-    };
-  }
-};
+export default {};
 </script>
 
 <style>
