@@ -1,26 +1,26 @@
 <template>
   <div class="container m-4 overflow-hidden bg-white shadow-2xl rounded-xl">
-    <div class="w-full image-container">
-      <img :src="image" alt="post image" class="w-full h-full loader" />
+    <div class="w-full image-container p-4 overflow-hidden">
+      <img :src="image" alt="post image" class="w-full h-full loader rounded" />
     </div>
     <h3 class="px-3 py-6 text-xl font-bold text-center">{{ title }}</h3>
     <div class="flex items-center justify-around w-full actions bg-teal">
       <nuxt-link
         :to="`posts/${id}`"
-        class="flex-1 block w-1/5 px-2 py-2 mx-2 text-center text-white transition duration-500 ease-in-out bg-gray-900 rounded-full cursor-pointer text-md hover:text-gray-600"
-        >View
+        class="flex-1 block w-1/5 p-2 mx-2 text-center text-white transition duration-500 ease-in-out bg-gray-900 rounded-full cursor-pointer text-md hover:text-gray-600"
+        ><font-awesome-icon :icon="['fa', 'eye']" title="detail" />
       </nuxt-link>
       <button
-        class="flex-1 block w-1/5 px-2 py-2 mx-2 text-center text-white transition duration-500 ease-in-out bg-gray-900 rounded-full cursor-pointer text-md hover:text-gray-600"
+        class="flex-1 block w-1/5 p-2 mx-2 text-center text-white transition duration-500 ease-in-out bg-gray-900 rounded-full cursor-pointer text-md hover:text-gray-600"
         @click="$emit('edit')"
       >
-        Edit
+        <font-awesome-icon :icon="['fa', 'pen']" title="update" />
       </button>
       <button
-        class="flex-1 block w-1/5 px-2 py-2 mx-2 text-center text-white transition duration-500 ease-in-out bg-gray-900 rounded-full cursor-pointer text-md hover:text-gray-600"
+        class="flex-1 block w-1/5 p-2 mx-2 text-center text-white transition duration-500 ease-in-out bg-gray-900 rounded-full cursor-pointer text-md hover:text-gray-600"
         @click="handleRemove(id)"
       >
-        Remove
+        <font-awesome-icon :icon="['fa', 'trash']" title="delete" />
       </button>
     </div>
   </div>

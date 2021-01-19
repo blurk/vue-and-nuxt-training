@@ -3,8 +3,8 @@
     <nuxt-link
       to="/posts"
       class="px-4 py-2 mx-2 text-xl font-medium text-center text-white transition duration-500 ease-in-out bg-gray-900 rounded cursor-pointer hover:text-gray-600"
-      >Back</nuxt-link
-    >
+      ><font-awesome-icon :icon="['fa', 'arrow-left']" title="back"
+    /></nuxt-link>
     <post-detail
       :title="currentPost.title"
       :content="currentPost.content"

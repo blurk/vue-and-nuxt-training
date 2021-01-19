@@ -4,7 +4,7 @@
       class="block px-4 py-2 mx-2 text-xl font-medium text-center text-white transition duration-500 ease-in-out bg-gray-900 rounded-full shadow-lg cursor-pointer hover:text-gray-600 bottom-2 btn-add"
       @click="showModal = true"
     >
-      ADD
+      <font-awesome-icon :icon="['fa', 'plus']" title="Add Post" />
     </button>
     <div
       v-if="allPosts.length === 0"
@@ -17,7 +17,7 @@
       <post
         v-for="post of allPosts"
         :key="post.id"
-        :id="post.id"
+        :id="post.id + ''"
         :title="post.title"
         :image="post.image"
         @edit="handleEdit(post.id, post)"
