@@ -67,15 +67,18 @@ export default {
     currentId: { type: String, required: false },
     currentTitle: {
       type: String,
-      required: false
+      required: false,
+      default: ""
     },
     currentContent: {
       type: String,
-      required: false
+      required: false,
+      default: ""
     },
     currentImage: {
       type: String,
-      required: false
+      required: false,
+      default: ""
     },
     isEditing: {
       type: Boolean,

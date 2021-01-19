@@ -53,7 +53,7 @@ export default {
     return {
       isEditing: false,
       showModal: false,
-      currentEditPost: null
+      currentEditPost: {}
     };
   },
   methods: {
